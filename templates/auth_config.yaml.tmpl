@@ -1,0 +1,22 @@
+server:
+  addr: ":5001"
+  certificate: "/certs/auth.crt"
+  key: "/certs/auth.key"
+
+token:
+  issuer: "Camptocamp Registry auth server"  # Must match issuer in the Registry config.
+  expiration: 900
+
+github_auth:
+  client_id: "{{getenv "GITHUB_CLIENT_ID"}}"
+  client_secret: "{{getenv "GITHUB_SECRET"}}"
+  token_db: "/data/github_tokens.ldb"
+  expire_after: 3600
+  
+acl:
+  - match: {account: "/.+/", name: "${account}/*"}
+    actions: ["push", "pull"]
+    comment: "All logged in users can push all images that are in a namespace beginning with their name"
+  - match: {account: "/.+/"}
+    actions: ["pull"]
+    comment: "All logged in users can pull any image"
