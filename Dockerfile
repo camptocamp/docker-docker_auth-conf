@@ -3,7 +3,7 @@ FROM rancher/confd-base:0.11.0-dev-rancher
 ADD ./conf.d /etc/confd/conf.d
 ADD ./templates /etc/confd/templates
 
-VOLUME ["/data"]
+VOLUME ["/certs", "/auth"]
 
 ENV AUTH_SSL_CRT=false \
     AUTH_SSL_KEY=false \
