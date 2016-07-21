@@ -7,6 +7,7 @@ VOLUME ["/certs", "/auth"]
 
 ENV AUTH_SSL_CRT=false \
     AUTH_SSL_KEY=false \
+    GITHUB_ORGANIZATION=false \
     GITHUB_CLIENT_ID=false \
     GITHUB_SECRET=false
 

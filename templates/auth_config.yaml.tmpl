@@ -8,6 +8,7 @@ token:
   expiration: 900
 
 github_auth:
+  organization: "{{getenv "GITHUB_ORGANIZATION"}}"
   client_id: "{{getenv "GITHUB_CLIENT_ID"}}"
   client_secret: "{{getenv "GITHUB_SECRET"}}"
   token_db: "/data/github_tokens.ldb"
